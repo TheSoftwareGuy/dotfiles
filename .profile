@@ -95,11 +95,6 @@ function AlertOnWifiUp {
 until ping -W1 -c1 google.com; do sleep 5; done && say the internet is back
 }
 
-function fuck(){
-echo god damn it
-  say god damn it
-}
-
 function ql(){
   qlmanage -p "$@" >& /dev/null &
 }
