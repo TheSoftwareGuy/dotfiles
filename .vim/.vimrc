@@ -9,6 +9,7 @@ set noexpandtab copyindent preserveindent softtabstop=0
 set showmatch
 set incsearch
 set number
+set relativenumber
 syntax enable
 set nocompatible
 set noswapfile
