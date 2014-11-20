@@ -1,6 +1,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                  variable settings                   "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible " the first line in any decent .vimrc
 set scrolloff=3
 set shiftwidth=4
 set tabstop=4
@@ -11,7 +12,6 @@ set incsearch
 set number
 set relativenumber
 syntax enable
-set nocompatible
 set noswapfile
 
 set timeout timeoutlen=1000 ttimeoutlen=100
@@ -32,7 +32,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 "              Key mappings                            "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-let mapleader=","
+let mapleader=" "
 "easily switch between buffers
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
