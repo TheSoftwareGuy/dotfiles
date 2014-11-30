@@ -118,5 +118,12 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 alias sls=sl
 export PATH=/usr/local/bin:$PATH
 
-alias reponame='git rev-parse --show-toplevel'
 
+alias reponame='git rev-parse --show-toplevel'
+#awesome prompt
+export PS1='\[${norm}\]\[${blue}\]\u\[${red}\]@\[${green}\]\h \[${magenta}\]$(basename $( git rev-parse --show-toplevel 2>/dev/null ) 2>/dev/null )\[${red}\]➤ \[${green}\]`git rev-parse --abbrev-ref HEAD 2>/dev/null`\[${red}\]:\[${blue}\]\W \[${red}\]\$\[${norm}\] '
+
+
+
+#ignore compiled python programs as tab completions
+export FIGNORE=$FIGNORE::.pyc
