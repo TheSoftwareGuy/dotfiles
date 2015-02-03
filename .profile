@@ -63,17 +63,17 @@ ${red}    \$  *                   .\$\$\$\$\$\$
 ${red}   .\$  ^c           \$\$\$\$\$e\$\$\$\$\$\$\$\$.
 ${red}   d\$L  4.         4\$\$\$\$\$\$\$\$\$\$\$\$\$\$b
 ${red}   \$\$\$\$b ^ceeeee.  4\$\$ECL.F*\$\$\$\$\$\$\$
-${red}   \$\$\$\$P d\$\$\$\$F \$ \$\$\$\$\$\$\$\$\$- \$\$\$\$\$\$        ${norm}User: $user
-${red}   3\$\$\$F \"\$\$\$\$b   \$\"\$\$\$\$\$\$\$  \$\$\$\$*\"        ${norm}Hostname: $hostname
-${red}    \$\$P\"  \"\$\$b   .\$ \$\$\$\$\$...e\$\$            ${norm}Distro: $distro
-${red}     *c    ..    \$\$ 3\$\$\$\$\$\$\$\$\$\$eF          ${norm}Kernel: $kernel
-${red}       %ce\"\"    \$\$\$  \$\$\$\$\$\$\$\$\$\$*           ${norm}Uptime: $uptime
-${red}        *\$e.    *** d\$\$\$\$\$\"L\$\$             ${norm}Shell: $shell
-${red}         \$\$\$      4J\$\$\$\$\$% \$\$\$             ${norm}Terminal: $terminal
-${red}        \$\"'\$=e....\$*\$\$**\$cz\$\$\"             ${norm}Brew Packages: $packages
-${red}        \$  *=%4.\$ L L\$ P3\$\$\$F              ${norm}CPU: $cpu
-${red}        \$   \"%*ebJLzb\$e\$\$\$\$\$b              ${norm}Memory: $ram
-${red}         %..      4\$\$\$\$\$\$\$\$\$\$              ${norm}Disk: $disk
+${red}   \$\$\$\$P d\$\$\$\$F \$ \$\$\$\$\$\$\$\$\$- \$\$\$\$\$\$        ${green}User: $user
+${red}   3\$\$\$F \"\$\$\$\$b   \$\"\$\$\$\$\$\$\$  \$\$\$\$*\"        ${green}Hostname: $hostname
+${red}    \$\$P\"  \"\$\$b   .\$ \$\$\$\$\$...e\$\$            ${green}Distro: $distro
+${red}     *c    ..    \$\$ 3\$\$\$\$\$\$\$\$\$\$eF          ${green}Kernel: $kernel
+${red}       %ce\"\"    \$\$\$  \$\$\$\$\$\$\$\$\$\$*           ${green}Uptime: $uptime
+${red}        *\$e.    *** d\$\$\$\$\$\"L\$\$             ${green}Shell: $shell
+${red}         \$\$\$      4J\$\$\$\$\$% \$\$\$             ${green}Terminal: $terminal
+${red}        \$\"'\$=e....\$*\$\$**\$cz\$\$\"             ${green}Brew Packages: $packages
+${red}        \$  *=%4.\$ L L\$ P3\$\$\$F              ${green}CPU: $cpu
+${red}        \$   \"%*ebJLzb\$e\$\$\$\$\$b              ${green}Memory: $ram
+${red}         %..      4\$\$\$\$\$\$\$\$\$\$              ${green}Disk: $disk
 ${red}          \$\$\$e   z\$\$\$\$\$\$\$\$\$\$ 
 ${red}           \"*\$c  \"\$\$\$\$\$\$\$P\"
 ${red}             \"\"\"*\$\$\$\$\$\$\$\"
@@ -99,8 +99,8 @@ function ql(){
   qlmanage -p "$@" >& /dev/null &
 }
 
-alias HACK='cmatrix -C red'
 #Just to scare the kids :)
+alias HACK='cmatrix -C red'
 
 #turn a typo into a laugh
 

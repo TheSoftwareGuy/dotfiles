@@ -33,17 +33,17 @@ endif
 "              Key mappings                            "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=" "
-"easily switch between buffers
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
 
-nnoremap <leader>/ ^i//<ESC>
-nnoremap <leader>q :wq<cr>
-nnoremap <leader>w :w<cr>
-nnoremap <c-e> $
-nnoremap <c-a> ^
+"easily switch between buffers
+nnoremap <c-j> <c-w>j 
+nnoremap <c-k> <c-w>k 
+nnoremap <c-h> <c-w>h 
+nnoremap <c-l> <c-w>l 
+nnoremap <c-n> :bn    
+nnoremap <c-p> :bp    
+
+" insert a C++ style single-line comment
+nnoremap <leader>/ ^i//<ESC> 
 
 
 "Press space to clear search highlighting and eny message already displayed
@@ -56,7 +56,7 @@ inoremap <c-l> <right>
 imap <c-e> <ESC>$a
 imap <c-a> <ESC>^a
 
-vnoremap <F12> :'<,'>s/^\(.*?\)//<left>
+vnoremap <C-F12> :'<,'>s/^\(.*?\)//<left>
 
 " insert tabs the RIGHT way
 function! InsertTabWrapper()
