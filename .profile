@@ -110,7 +110,7 @@ function right(){
 	afplay "/Users/gillis/Music/misc/Heisenberg. 'You're Goddamn Right!' Breaking Bad Season 5  Walter White-07wuZ3EWMAA.m4a"
 }
 fuck(){
-	afplay "~/Music/misc/Fuck You.mp3"
+	afplay ~/Music/misc/Fuck\ YOU.mp3
 }
 	
 #Just to scare the kids :)
