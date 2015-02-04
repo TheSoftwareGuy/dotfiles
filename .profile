@@ -99,6 +99,16 @@ function ql(){
   qlmanage -p "$@" >& /dev/null &
 }
 
+function yeah(){
+  afplay /Users/gillis/Music/misc/YEAH\ BITCH.m4a
+}
+function bitch(){
+	yeah
+}
+function right(){
+	afplay "/Users/gillis/Music/misc/Heisenberg. 'You're Goddamn Right!' Breaking Bad Season 5  Walter White-07wuZ3EWMAA.m4a"
+}
+	
 #Just to scare the kids :)
 alias HACK='cmatrix -C red'
 
