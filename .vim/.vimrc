@@ -43,7 +43,7 @@ nnoremap <c-n> :bn
 nnoremap <c-p> :bp    
 
 " insert a C++ style single-line comment
-nnoremap <leader>/ ^i//<ESC> 
+nnoremap <leader>/ mT^i//<ESC>`T 
 
 
 "Press space to clear search highlighting and eny message already displayed
