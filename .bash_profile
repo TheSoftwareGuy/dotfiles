@@ -137,9 +137,9 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 #this is for the depot_tools thing that the v8 guys use
 export PATH="/Users/gillis/Projects/depot_tools:${PATH}"
+export PATH=/usr/local/bin:$PATH
 
 alias sls=sl
-export PATH=/usr/local/bin:$PATH
 
 
 alias reponame='git rev-parse --show-toplevel'
@@ -155,6 +155,8 @@ export EDITOR='mvim'
 
 #setup git tab-completion
 source ~/git-completion.bash
+alias gs='git status'
+alias gd='git diff'
 
 
 
