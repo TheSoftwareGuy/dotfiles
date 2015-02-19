@@ -83,16 +83,16 @@ ${norm}
 
 alert()
 {
-if [ $# -gt 0 ]
-    then
+	if [ $# -gt 0 ]
+	then
         growlnotify -m "$1"
-else
-    growlnotify -m "Alert"
-fi
+	else
+    	growlnotify -m "Alert"
+	fi
 }
 
 function AlertOnWifiUp {
-until ping -W1 -c1 google.com; do sleep 5; done && say the internet is back
+	until ping -W1 -c1 google.com; do sleep 5; done && say the internet is back
 }
 
 function ql(){
@@ -144,8 +144,15 @@ alias sls=sl
 
 alias reponame='git rev-parse --show-toplevel'
 #awesome prompt
-export PS1='\[${norm}\]\[${blue}\]\u\[${red}\]@\[${green}\]\h \[${magenta}\]$(basename $( git rev-parse --show-toplevel 2>/dev/null ) 2>/dev/null )\[${red}\]➤ \[${green}\]`git rev-parse --abbrev-ref HEAD 2>/dev/null`\[${red}\]:\[${blue}\]\W \[${red}\]\$\[${norm}\] '
+export GIT_PROMPT='${bright}\[${magenta}\]$(basename $( git rev-parse --show-toplevel 2>/dev/null ) 2>/dev/null )${norm}\[${red}\]➤ ${bright}\[${green}\]`git rev-parse --abbrev-ref HEAD 2>/dev/null`\[${norm}\]'
 
+#old prompt
+#export PS1='\[${norm}\]\[${blue}\]\u\[${red}\]@\[${green}\]\h :\[${blue}\]\W \[${red}\]\$\[${norm}\] '
+
+export PS1="\[\e[00;34m\]\u\[\e[0m\]\[\e[00;31m\]@\[\e[0m\]\[\e[00;32m\]\h\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\][\[\e[0m\]\[\e[00;35m\]\$?\[\e[0m\]\[\e[00;31m\]]\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]{\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;36m\]\d\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[01;36m\]\t\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]}\[\e[0m\] ${GIT_PROMPT} \[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]:\[\e[0m\]\[\e[00;34m\]\w\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\\n\[\e[00;33m\]\\$\[\e[0m\]\[\e[00;31m\] \[\e[0m\]"
+
+#export PS1="\[\e[00;34m\]\u\[\e[0m\]\[\e[00;31m\]@\[\e[0m\]\[\e[00;32m\]\h\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\][\[\e[0m\]\[\e[00;35m\]\$?\[\e[0m\]\[\e[00;31m\]]\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]{\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[01;36m\]\d\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;36m\]\t\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]}\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]:\[\e[0m\]\[\e[00;34m\]\w\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]\\$ \[\e[0m\]
+#"
 
 
 #ignore compiled python programs as tab completions
@@ -157,6 +164,7 @@ export EDITOR='mvim'
 source ~/git-completion.bash
 alias gs='git status'
 alias gd='git diff'
+alias grep='grep --color'
 
 
 
