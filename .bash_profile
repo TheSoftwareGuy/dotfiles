@@ -1,6 +1,7 @@
 #colors for the prompt variables
 # Reset
 
+#TODO: add \[ and \] around each of these things
 bright=`echo -e "\x1b[1m"` 
 dim=`echo -e "\x1b[2m"` 
 underline=`echo -e "\x1b[4m"` 	
@@ -144,21 +145,26 @@ alias sls=sl
 
 alias reponame='git rev-parse --show-toplevel'
 #awesome prompt
-export GIT_PROMPT='${bright}\[${magenta}\]$(basename $( git rev-parse --show-toplevel 2>/dev/null ) 2>/dev/null )${norm}\[${red}\]➤ ${bright}\[${green}\]`git rev-parse --abbrev-ref HEAD 2>/dev/null`\[${norm}\]'
+export GIT_PROMPT='${underline}${bright}\[${magenta}\]$(basename $( git rev-parse --show-toplevel 2>/dev/null ) 2>/dev/null )${norm}${underline}${red}➤ ${bright}\[${green}\]`git rev-parse --abbrev-ref HEAD 2>/dev/null`\[${norm}\]'
 
 #old prompt
 #export PS1='\[${norm}\]\[${blue}\]\u\[${red}\]@\[${green}\]\h :\[${blue}\]\W \[${red}\]\$\[${norm}\] '
 
-export PS1="\[\e[00;34m\]\u\[\e[0m\]\[\e[00;31m\]@\[\e[0m\]\[\e[00;32m\]\h\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\][\[\e[0m\]\[\e[00;35m\]\$?\[\e[0m\]\[\e[00;31m\]]\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]{\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;36m\]\d\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[01;36m\]\t\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]}\[\e[0m\] ${GIT_PROMPT} \[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]:\[\e[0m\]\[\e[00;34m\]\w\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\\n\[\e[00;33m\]\\$\[\e[0m\]\[\e[00;31m\] \[\e[0m\]"
+#export PS1="\[\e[00;34m\]\u\[\e[0m\]\[\e[00;31m\]@\[\e[0m\]\[\e[00;32m\]\h\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\][\[\e[0m\]\[\e[00;35m\]\$?\[\e[0m\]\[\e[00;31m\]]\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]{\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;36m\]\d\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[01;36m\]\t\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]}\[\e[0m\] ${GIT_PROMPT} \[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]:\[\e[0m\]\[\e[00;34m\]\w\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\\n\[\e[00;33m\]\\$\[\e[0m\]\[\e[00;31m\] \[\e[0m\]"
+
 
 #export PS1="\[\e[00;34m\]\u\[\e[0m\]\[\e[00;31m\]@\[\e[0m\]\[\e[00;32m\]\h\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\][\[\e[0m\]\[\e[00;35m\]\$?\[\e[0m\]\[\e[00;31m\]]\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]{\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[01;36m\]\d\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;36m\]\t\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]}\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]:\[\e[0m\]\[\e[00;34m\]\w\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]\\$ \[\e[0m\]
 #"
+export PS1="\[\e[0;34m\]\w\[\e[0;31m\]: \[\e[0;31m\][\[\e[0;33m\]$?\[\e[0;31m\]] \[\e[0;31m\]{\[\e[0;36m\]\d \[\e[0;36m\]${bright}\T\[\e[0;31m\]} \[\e[0;34m\]\u\[\e[0;31m\]@\[\e[0;32m\]\h\[\e[0;31m\]:\[\e[0;37m\]${GIT_PROMPT} \[\e[0m\]
+${norm}${red}\$ ${norm}"
 
 
 #ignore compiled python programs as tab completions
 export FIGNORE=$FIGNORE::.pyc
 
-export EDITOR='mvim'
+export VISUAL='mvim -f'
+export EDITOR=$"VISUAL"
+
 
 #setup git tab-completion
 source ~/git-completion.bash
