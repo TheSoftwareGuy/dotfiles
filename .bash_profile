@@ -170,7 +170,9 @@ export EDITOR=$"VISUAL"
 source ~/git-completion.bash
 alias gs='git status'
 alias gd='git diff'
-alias grep='grep --color'
+alias ga='git add'
+alias gc='git commit'
+alias grep='grep --color=auto'
 
 
 
