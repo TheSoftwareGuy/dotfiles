@@ -113,10 +113,10 @@ function right {
 function fuck {
 	afplay ~/Music/misc/Fuck\ YOU.mp3
 }
-pfind {
+function pfind {
 	ps -A | grep -i $*
 }
-preprend {
+function preprend {
 	cat - "$*"
 }
 	
@@ -164,7 +164,7 @@ export EDITOR=$"VISUAL"
 
 
 #setup git tab-completion
-source ~/git-completion.bash
+#source ~/git-completion.bash
 alias gs='git status'
 alias gd='git diff'
 alias ga='git add'
