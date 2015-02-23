@@ -38,7 +38,7 @@ norm=`echo -e "\x1B[0m"`       # Text Reset
 Triangle_RIGHT=`echo -e "\xE2\x96\xB6"`
 
 #Macro functions
-archey()
+function archey
 {
 # Variables
 user=$(whoami)
@@ -82,7 +82,7 @@ ${norm}
 "
 }
 
-alert()
+function alert
 {
 	if [ $# -gt 0 ]
 	then
@@ -96,27 +96,27 @@ function AlertOnWifiUp {
 	until ping -W1 -c1 google.com; do sleep 5; done && say the internet is back
 }
 
-function ql(){
+function ql {
   qlmanage -p "$@" >& /dev/null &
 }
 
 #Exclamatories
-function yeah(){
+function yeah {
   afplay /Users/gillis/Music/misc/YEAH\ BITCH.m4a
 }
-function bitch(){
+function bitch {
 	yeah
 }
-function right(){
+function right {
 	afplay "/Users/gillis/Music/misc/Heisenberg. 'You're Goddamn Right!' Breaking Bad Season 5  Walter White-07wuZ3EWMAA.m4a"
 }
-fuck(){
+function fuck {
 	afplay ~/Music/misc/Fuck\ YOU.mp3
 }
-pfind(){
+pfind {
 	ps -A | grep -i $*
 }
-preprend(){
+preprend {
 	cat - "$*"
 }
 	
@@ -143,9 +143,7 @@ export PATH=/usr/local/bin:$PATH
 alias sls=sl
 
 
-alias reponame='git rev-parse --show-toplevel'
 #awesome prompt
-export GIT_PROMPT='${underline}${bright}\[${magenta}\]$(basename $( git rev-parse --show-toplevel 2>/dev/null ) 2>/dev/null )${norm}${underline}${red}➤ ${bright}\[${green}\]`git rev-parse --abbrev-ref HEAD 2>/dev/null`\[${norm}\]'
 
 #old prompt
 #export PS1='\[${norm}\]\[${blue}\]\u\[${red}\]@\[${green}\]\h :\[${blue}\]\W \[${red}\]\$\[${norm}\] '
@@ -155,8 +153,7 @@ export GIT_PROMPT='${underline}${bright}\[${magenta}\]$(basename $( git rev-pars
 
 #export PS1="\[\e[00;34m\]\u\[\e[0m\]\[\e[00;31m\]@\[\e[0m\]\[\e[00;32m\]\h\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\][\[\e[0m\]\[\e[00;35m\]\$?\[\e[0m\]\[\e[00;31m\]]\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]{\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[01;36m\]\d\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;36m\]\t\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]}\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]:\[\e[0m\]\[\e[00;34m\]\w\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]\\$ \[\e[0m\]
 #"
-export PS1="\[\e[0;34m\]\w\[\e[0;31m\]: \[\e[0;31m\][\[\e[0;33m\]$?\[\e[0;31m\]] \[\e[0;31m\]{\[\e[0;36m\]\d \[\e[0;36m\]${bright}\T\[\e[0;31m\]} \[\e[0;34m\]\u\[\e[0;31m\]@\[\e[0;32m\]\h\[\e[0;31m\]:\[\e[0;37m\]${GIT_PROMPT} \[\e[0m\]
-${norm}${red}\$ ${norm}"
+source ./prompt_helper.sh
 
 
 #ignore compiled python programs as tab completions
@@ -172,6 +169,7 @@ alias gs='git status'
 alias gd='git diff'
 alias ga='git add'
 alias gc='git commit'
+alias gca='git commit -a'
 alias grep='grep --color=auto'
 
 
