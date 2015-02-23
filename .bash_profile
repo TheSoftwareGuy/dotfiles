@@ -155,7 +155,7 @@ export GIT_PROMPT='${underline}${bright}\[${magenta}\]$(basename $( git rev-pars
 
 #export PS1="\[\e[00;34m\]\u\[\e[0m\]\[\e[00;31m\]@\[\e[0m\]\[\e[00;32m\]\h\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\][\[\e[0m\]\[\e[00;35m\]\$?\[\e[0m\]\[\e[00;31m\]]\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]{\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[01;36m\]\d\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;36m\]\t\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]}\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]:\[\e[0m\]\[\e[00;34m\]\w\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]\\$ \[\e[0m\]
 #"
-export PS1="\[\e[0;34m\]\w\[\e[0;31m\]: \[\e[0;31m\][\[\e[0;33m\]$?\[\e[0;31m\]] \[\e[0;31m\]{\[\e[0;36m\]\d \[\e[0;36m\]${bright}\T\[\e[0;31m\]} \[\e[0;34m\]\u\[\e[0;31m\]@\[\e[0;32m\]\h\[\e[0;31m\]:\[\e[0;37m\]${GIT_PROMPT} \[\e[0m\]
+export PS1="\[\e[0;34m$underline\]\w\[\e[0;31m\] \[\e[0;31m\][\[\e[0;33m\]$?\[\e[0;31m\]] \[\e[0;31m\]{\[\e[0;36m\]\d \[\e[0;36m\]${bright}\T\[\e[0;31m\]} \[\e[0;34m\]\u\[\e[0;31m\]@\[\e[0;32m\]\h\[\e[0;31m\]:\[\e[0;37m\]${GIT_PROMPT} \[\e[0m\]
 ${norm}${red}\$ ${norm}"
 
 
@@ -172,6 +172,7 @@ alias gs='git status'
 alias gd='git diff'
 alias ga='git add'
 alias gc='git commit'
+alias gca='git commit -a'
 alias grep='grep --color=auto'
 
 
