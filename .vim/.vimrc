@@ -3,16 +3,16 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible " the first line in any decent .vimrc
 set scrolloff=3
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 set hlsearch
-set noexpandtab copyindent preserveindent softtabstop=0
+set expandtab copyindent preserveindent softtabstop=0
 set showmatch
 set incsearch
 set number
 set relativenumber
 syntax enable
-set noswapfile
+" set noswapfile " I am trying this temporarily
 
 set timeout timeoutlen=1000 ttimeoutlen=100
 set autoindent
@@ -25,8 +25,25 @@ set wildmode=list:longest
 set completeopt=longest,menu,preview
 set wildmenu
 
+"for Vundle
+filetype off
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'Valloric/YouCompleteMe'
+call vundle#end()
+filetype plugin indent on
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"            YouCompleteMe Configuration               "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ycm_seed_identifiers_with_syntax =1
+let g:ycm_complete_in_comments=1
+let g:ycm_collect_identifiers_from_tags_files = 1
+
 if has('gui_running')
-    colorscheme slate
+    colorscheme darkblue
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""

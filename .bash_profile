@@ -1,7 +1,10 @@
 #colors for the prompt variables
 # Reset
 
-#TODO: add \[ and \] around each of these things
+################################################################################
+#                      Environment Variables                                   #
+################################################################################
+#TODO: add \[ and \] around each of these things. Maybe, is that needed?
 bright=`echo -e "\x1b[1m"` 
 dim=`echo -e "\x1b[2m"` 
 underline=`echo -e "\x1b[4m"` 	
@@ -31,12 +34,20 @@ bwhite=`echo -e "\x1b[47m"`
 
 norm=`echo -e "\x1B[0m"`       # Text Reset
 
+#ignore compiled python programs as tab completions
+export FIGNORE=$FIGNORE::.pyc
+
+export VISUAL='mvim -f'
+export EDITOR=$"VISUAL"
 
 ######################
-# Unicode Characters
+# Unicode Characters #
 ######################
 Triangle_RIGHT=`echo -e "\xE2\x96\xB6"`
 
+################################################################################
+#                      Macro Functions                                         #
+################################################################################
 #Macro functions
 function archey
 {
@@ -120,8 +131,6 @@ function preprend {
 	cat - "$*"
 }
 	
-#Just to scare the kids :)
-alias HACK='cmatrix -C red'
 
 #turn a typo into a laugh
 
@@ -153,18 +162,29 @@ alias sls=sl
 
 #export PS1="\[\e[00;34m\]\u\[\e[0m\]\[\e[00;31m\]@\[\e[0m\]\[\e[00;32m\]\h\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\][\[\e[0m\]\[\e[00;35m\]\$?\[\e[0m\]\[\e[00;31m\]]\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]{\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[01;36m\]\d\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;36m\]\t\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]}\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]:\[\e[0m\]\[\e[00;34m\]\w\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]\\$ \[\e[0m\]
 #"
-source ./prompt_helper.sh
+################################################################################
+#                      Helper files                                            #
+################################################################################
+source ~/dotfiles/prompt_helper.sh
+source ~/git-completion.bash
 
 
-#ignore compiled python programs as tab completions
-export FIGNORE=$FIGNORE::.pyc
 
-export VISUAL='mvim -f'
-export EDITOR=$"VISUAL"
+################################################################################
+#                      Command Aliases                                         #
+################################################################################
 
+###############
+# Fun aliases #
+###############
 
-#setup git tab-completion
-#source ~/git-completion.bash
+#Just to scare the kids :)
+alias HACK='cmatrix -C red'
+
+###############
+# Git aliases #
+###############
+
 alias gs='git status'
 alias gd='git diff'
 alias ga='git add'
@@ -172,5 +192,9 @@ alias gc='git commit'
 alias gca='git commit -a'
 alias grep='grep --color=auto'
 
+######################
+# Neovim Development #
+######################
 
+alias nvim='/Users/gillis/Projects/neovim/build/bin/nvim'
 
