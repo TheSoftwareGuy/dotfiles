@@ -121,6 +121,9 @@ function bitch {
 function right {
 	afplay "/Users/gillis/Music/misc/Heisenberg. 'You're Goddamn Right!' Breaking Bad Season 5  Walter White-07wuZ3EWMAA.m4a"
 }
+function smoke {
+  afplay /Users/gillis/Music/misc/Smoke\ Weed\ Everyday.mp3 
+}
 function fuck {
 	afplay ~/Music/misc/Fuck\ YOU.mp3
 }
@@ -149,7 +152,6 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export PATH="/Users/gillis/Projects/depot_tools:${PATH}"
 export PATH=/usr/local/bin:$PATH
 
-alias sls=sl
 
 
 #awesome prompt
@@ -174,12 +176,20 @@ source ~/git-completion.bash
 #                      Command Aliases                                         #
 ################################################################################
 
+###################
+# General Aliases #
+###################
+alias la='ls -a'
+alias ll='ls -l'
+alias lal='ls -al'
+
 ###############
 # Fun aliases #
 ###############
 
 #Just to scare the kids :)
 alias HACK='cmatrix -C red'
+alias sls=sl
 
 ###############
 # Git aliases #
