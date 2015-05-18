@@ -21,7 +21,7 @@ export GIT_PROMPT='\[${GIT_PROMPT_NORM}\]\[${GIT_REPO_COLOR}\]$(basename $( git 
 
 
 
-export PS1="\[\e[0;34m\]${underline}\w${norm}\[\e[0;31m\] [\[\e[0;33m\]$?\[\e[0;31m\]] \[\e[0;31m\]{\[\e[0;36m\]\d \[\e[0;36m\]${bright}\T\[\e[0;31m\]} \[\e[0;34m\]\u\[\e[0;31m\]@\[\e[0;32m\]\h\[\e[0;31m\]:\[\e[0;37m\]${GIT_PROMPT} \[\e[0m\]
+export PS1="\[\e[0;34m\]${underline}\w${norm}\[\e[0;31m\] [\[\e[0;33m\]\$?\[\e[0;31m\]] \[\e[0;31m\]{\[\e[0;36m\]\d \[\e[0;36m\]${bright}\T\[\e[0;31m\]} \[\e[0;34m\]\u\[\e[0;31m\]@\[\e[0;32m\]\h\[\e[0;31m\]:\[\e[0;37m\]${GIT_PROMPT} \[\e[0m\]
 \[${norm}\]\[${red}\]\$ \[${norm}\]"
 
 
