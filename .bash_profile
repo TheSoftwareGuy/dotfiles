@@ -38,7 +38,7 @@ norm=`echo -e "\x1B[0m"`       # Text Reset
 export FIGNORE=$FIGNORE::.pyc
 
 export VISUAL='mvim -f'
-export EDITOR=$"VISUAL"
+export EDITOR="nvim"
 
 ######################
 # Unicode Characters #
