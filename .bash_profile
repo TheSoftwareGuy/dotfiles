@@ -208,5 +208,5 @@ alias grep='grep --color=auto'
 # Neovim Development #
 ######################
 
-alias nvim='/Users/gillis/Projects/neovim/build/bin/nvim'
+#alias nvim='/Users/gillis/Projects/neovim/build/bin/nvim'
 
