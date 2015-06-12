@@ -43,7 +43,22 @@ filetype plugin indent on
 """"""""""""
 "Vim-airline
 """"""""""""
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
 let g:airline#extensions#tabline#enabled = 1
+"let g:airline_left_sep = '▶'
+"let g:airline_right_sep = '◀;              "one day I will figure this shit
+                                              "out
+"let g:airline_symbols.branch = '⎇ '
+"p
+"if has('win32')
+"  let g:airline_symbols.linenr = '␊'
+"else
+"  let g:airline_symbols.linenr = '␤'
+"endif
+
 set laststatus=2
 
 "CtrlP
@@ -59,11 +74,14 @@ let g:ctrlp_working_path_mode = 'c'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=" "
 
+"open current directory in netrw
+nnoremap  <leader>o :e .<cr>
+
 "easily switch between buffers
-nnoremap <c-j> <c-w>j 
-nnoremap <c-k> <c-w>k 
-nnoremap <c-h> <c-w>h 
-nnoremap <c-l> <c-w>l 
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
 
 " insert a C++ style single-line comment
 nnoremap <leader>/ mT^i//<ESC>`T 
@@ -107,7 +125,7 @@ cmap <c-l> <right>
 " easily save files
 nnoremap <leader>w :w<cr>
 
-nnoremap <bs> gg
+"nnoremap <bs> gg
 nnoremap <cr> G
 
 nnoremap <leader>s :sp
