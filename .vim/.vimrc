@@ -11,6 +11,7 @@ set showmatch
 set incsearch
 set number
 set relativenumber
+set mouse=a
 syntax enable
 " set noswapfile " I am trying this temporarily
 
