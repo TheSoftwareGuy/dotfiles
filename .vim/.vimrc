@@ -3,10 +3,10 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible " the first line in any decent .vimrc
 set scrolloff=3
-set shiftwidth=2
-set tabstop=2
+set shiftwidth=4
+set tabstop=4
 set hlsearch
-set expandtab copyindent preserveindent softtabstop=0
+set noexpandtab copyindent preserveindent softtabstop=0
 set showmatch
 set incsearch
 set number
@@ -14,6 +14,9 @@ set relativenumber
 set mouse=a
 syntax enable
 " set noswapfile " I am trying this temporarily
+
+" automatically cd into the dir of the current file
+autocmd BufEnter * silent! lcd %:p:h
 
 set timeout timeoutlen=1000 ttimeoutlen=100
 set autoindent
