@@ -11,15 +11,28 @@ set showmatch
 set incsearch
 set number
 set relativenumber
-set mouse=a
+set mouse=a "make the mouse work correctly, even in terminal
+
 syntax enable
 " set noswapfile " I am trying this temporarily
 
-" automatically cd into the dir of the current file
-autocmd BufEnter * silent! lcd %:p:h
+set autochdir " automatically cd into the dir of the current file
+
 
 set timeout timeoutlen=1000 ttimeoutlen=100
 set autoindent
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"            Fold Configurations                       "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set foldenable "turn on folding
+set foldmethod=indent "Fold on the indent
+set foldlevel=100 "don't fold on anything (but I can still fold manually)
+set foldopen=block,hor,mark,percent,quickfix,tag "what movements open folds
+function SimpleFoldText() " {
+    return getline(v:foldstart).' '
+endfunction " }
+set foldtext=SimpleFoldText "custom fold test function
+
 
 set ignorecase
 set smartcase
