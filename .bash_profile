@@ -113,18 +113,22 @@ function ql {
 
 #Exclamatories
 function yeah {
+  osascript -e 'set Volume 10'
   afplay /Users/gillis/Music/misc/YEAH\ BITCH.m4a
 }
 function bitch {
 	yeah
 }
 function right {
+	osascript -e 'set Volume 10'
 	afplay "/Users/gillis/Music/misc/Heisenberg. 'You're Goddamn Right!' Breaking Bad Season 5  Walter White-07wuZ3EWMAA.m4a"
 }
 function smoke {
+  osascript -e 'set Volume 10'
   afplay /Users/gillis/Music/misc/Smoke\ Weed\ Everyday.mp3 
 }
 function fuck {
+    osascript -e 'set Volume 10'
 	afplay ~/Music/misc/Fuck\ YOU.mp3
 }
 function pfind {
