@@ -127,6 +127,14 @@ function smoke {
   osascript -e 'set Volume 10'
   afplay /Users/gillis/Music/misc/Smoke\ Weed\ Everyday.mp3 
 }
+function eprof { # for editing the (bash) profile configuration
+	$EDITOR --nofork ~/.bash_profile
+	echo you may have wanted to commit this change
+	echo but you were too drunk when you implemnented this command
+	echo also think about updating it now
+	echo or whatever
+}
+
 function fuck {
     osascript -e 'set Volume 10'
 	afplay ~/Music/misc/Fuck\ YOU.mp3
