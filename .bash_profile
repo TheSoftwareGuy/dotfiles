@@ -222,3 +222,4 @@ alias grep='grep --color=auto'
 
 #alias nvim='/Users/gillis/Projects/neovim/build/bin/nvim'
 
+export PATH="/usr/local/Homebrew/bin:$PATH"

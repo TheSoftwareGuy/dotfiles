@@ -103,6 +103,12 @@ function alert
 	fi
 }
 
+
+function scrape {
+	wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=unix $*
+}
+
+
 function AlertOnWifiUp {
 	until ping -W1 -c1 google.com; do sleep 5; done && say the internet is back
 }
