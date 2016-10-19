@@ -158,6 +158,9 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export PATH="/Users/gillis/Projects/depot_tools:${PATH}"
 export PATH=/usr/local/bin:$PATH
 
+# add homebrew stuff to PATH
+export PATH="/usr/local/Homebrew/bin:$PATH"
+
 
 
 #awesome prompt
