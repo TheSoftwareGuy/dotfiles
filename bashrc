@@ -213,9 +213,4 @@ alias gc='git commit'
 alias gca='git commit -a'
 alias grep='grep --color=auto'
 
-######################
-# Neovim Development #
-######################
-
-#alias nvim='/Users/gillis/Projects/neovim/build/bin/nvim'
 
