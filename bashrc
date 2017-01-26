@@ -161,6 +161,9 @@ export PATH=/usr/local/bin:$PATH
 # add homebrew stuff to PATH
 export PATH="/usr/local/Homebrew/bin:$PATH"
 
+#add MSP430 stuff to PATH
+export PATH="${PATH}:/usr/local/msp430-toolchain/bin"
+
 
 
 #awesome prompt

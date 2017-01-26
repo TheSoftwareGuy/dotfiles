@@ -6,9 +6,10 @@ set scrolloff=3
 set shiftwidth=4
 set tabstop=4
 set hlsearch
-set noexpandtab copyindent preserveindent softtabstop=0
+set expandtab copyindent preserveindent softtabstop=0
 set showmatch
 set incsearch
+set backspace=indent,eol,start
 set number
 set relativenumber
 set mouse=a "make the mouse work correctly, even in terminal
