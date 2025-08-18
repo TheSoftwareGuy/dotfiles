@@ -86,7 +86,7 @@ complete -C '/opt/homebrew/bin/aws_completer' aws
 # custom prompt
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' formats ": (%{$reset_color%}%{$fg[green]%}%r/%{$fg[blue]%}%b%{$reset_color%} %m%u%c%{$reset_color%})"
+zstyle ':vcs_info:*' formats ": (%{$reset_color%}%{$fg[green]%}%r%{$fg[white]%}/%{$fg[blue]%}%b%{$reset_color%}) %m%u%c%{$reset_color%}"
 zstyle ':vcs_info:*' enable git svn
 
 
@@ -96,7 +96,7 @@ precmd () {
     if [[ last_exit_code -eq 0 ]] ; then
         STATUS_PART='✅'
     else
-        STATUS_PART="⚠️  ${red}${last_exit_code}${norm} ⚠️ "
+        STATUS_PART="⚠️ ${red}${last_exit_code}${norm} ⚠️"
     fi
     
 
@@ -150,3 +150,6 @@ alias grep='grep --color=auto'
 export PATH=/Users/jonathan.gillis/bin:$PATH
 
 
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
