@@ -1,6 +1,5 @@
 #colors for the prompt variables
 # Reset
-
 ################################################################################
 #                      Environment Variables                                   #
 ################################################################################
@@ -34,6 +33,9 @@ bwhite=`echo -e "\x1b[47m"`
 
 norm=`echo -e "\x1B[0m"`       # Text Reset
 
+autoload colors && colors
+
+
 #ignore compiled python programs as tab completions
 export FIGNORE=$FIGNORE::.pyc
 
@@ -49,64 +51,6 @@ Triangle_RIGHT=`echo -e "\xE2\x96\xB6"`
 #                      Macro Functions                                         #
 ################################################################################
 #Macro functions
-function archey
-{
-# Variables
-user=$(whoami)
-hostname=$(hostname | sed 's/.local//g')
-distro="OS X $(sw_vers -productVersion)"
-kernel=$(uname)
-uptime=$(uptime | sed 's/.*up \([^,]*\), .*/\1/')
-shell="$SHELL"
-terminal="$TERM"
-packages="`brew list -l | wc -l | awk '{print $1 }'`"
-cpu=$(sysctl -n machdep.cpu.brand_string)
-mem=$(sysctl -n hw.memsize)
-ram="$((mem/1000000000)) GB"
-disk=`df | head -2 | tail -1 | awk '{print $5}'`
-
-echo -e "
-${red}          .ed\"\"\"\" \"\"\"\$\$\$\$be.
-${red}        -\"           ^\"\"**\$\$\$e.
-${red}      .\"                   '\$\$\$c
-${red}     /                      \"4\$\$b
-${red}    d  3                      \$\$\$\$
-${red}    \$  *                   .\$\$\$\$\$\$
-${red}   .\$  ^c           \$\$\$\$\$e\$\$\$\$\$\$\$\$.
-${red}   d\$L  4.         4\$\$\$\$\$\$\$\$\$\$\$\$\$\$b
-${red}   \$\$\$\$b ^ceeeee.  4\$\$ECL.F*\$\$\$\$\$\$\$
-${red}   \$\$\$\$P d\$\$\$\$F \$ \$\$\$\$\$\$\$\$\$- \$\$\$\$\$\$        ${green}User: $user
-${red}   3\$\$\$F \"\$\$\$\$b   \$\"\$\$\$\$\$\$\$  \$\$\$\$*\"        ${green}Hostname: $hostname
-${red}    \$\$P\"  \"\$\$b   .\$ \$\$\$\$\$...e\$\$            ${green}Distro: $distro
-${red}     *c    ..    \$\$ 3\$\$\$\$\$\$\$\$\$\$eF          ${green}Kernel: $kernel
-${red}       %ce\"\"    \$\$\$  \$\$\$\$\$\$\$\$\$\$*           ${green}Uptime: $uptime
-${red}        *\$e.    *** d\$\$\$\$\$\"L\$\$             ${green}Shell: $shell
-${red}         \$\$\$      4J\$\$\$\$\$% \$\$\$             ${green}Terminal: $terminal
-${red}        \$\"'\$=e....\$*\$\$**\$cz\$\$\"             ${green}Brew Packages: $packages
-${red}        \$  *=%4.\$ L L\$ P3\$\$\$F              ${green}CPU: $cpu
-${red}        \$   \"%*ebJLzb\$e\$\$\$\$\$b              ${green}Memory: $ram
-${red}         %..      4\$\$\$\$\$\$\$\$\$\$              ${green}Disk: $disk
-${red}          \$\$\$e   z\$\$\$\$\$\$\$\$\$\$ 
-${red}           \"*\$c  \"\$\$\$\$\$\$\$P\"
-${red}             \"\"\"*\$\$\$\$\$\$\$\"
-${norm}
-"
-}
-
-function alert
-{
-	if [ $# -gt 0 ]
-	then
-        growlnotify -m "$1"
-	else
-    	growlnotify -m "Alert"
-	fi
-}
-
-
-function scrape {
-	wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=unix $*
-}
 
 
 function AlertOnWifiUp {
@@ -117,70 +61,61 @@ function ql {
   qlmanage -p "$@" >& /dev/null &
 }
 
-#Exclamatories
-function yeah {
-  afplay /Users/gillis/Music/misc/YEAH\ BITCH.m4a
-}
-function bitch {
-	yeah
-}
-function right {
-	afplay "/Users/gillis/Music/misc/Heisenberg. 'You're Goddamn Right!' Breaking Bad Season 5  Walter White-07wuZ3EWMAA.m4a"
-}
-function smoke {
-  afplay /Users/gillis/Music/misc/Smoke\ Weed\ Everyday.mp3 
-}
-function fuck {
-	afplay ~/Music/misc/Fuck\ YOU.mp3
-}
-function pfind {
-	ps -A | grep -i $*
-}
 function preprend {
 	cat - "$*"
 }
+
+up() {
+    cd $( printf '../%.0s' {1..${1:-1}} )
+}
 	
 
-#turn a typo into a laugh
 
 #enable colorized ls
 export CLICOLOR=1
 
-##
-# Your previous /Users/gillis/.profile file was backed up as /Users/gillis/.profile.macports-saved_2014-01-29_at_19:03:10
-##
 
-# MacPorts Installer addition on 2014-01-29_at_19:03:10: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
-
-#this is for the depot_tools thing that the v8 guys use
-export PATH="/Users/gillis/Projects/depot_tools:${PATH}"
-export PATH=/usr/local/bin:$PATH
 
 # add homebrew stuff to PATH
 export PATH="/usr/local/Homebrew/bin:$PATH"
+# aws cli auto-complete
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+complete -C '/opt/homebrew/bin/aws_completer' aws
 
-#add MSP430 stuff to PATH
-export PATH="${PATH}:/usr/local/msp430-toolchain/bin"
-
-
-
-#awesome prompt
-
-#old prompt
-#export PS1='\[${norm}\]\[${blue}\]\u\[${red}\]@\[${green}\]\h :\[${blue}\]\W \[${red}\]\$\[${norm}\] '
-
-#export PS1="\[\e[00;34m\]\u\[\e[0m\]\[\e[00;31m\]@\[\e[0m\]\[\e[00;32m\]\h\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\][\[\e[0m\]\[\e[00;35m\]\$?\[\e[0m\]\[\e[00;31m\]]\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]{\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;36m\]\d\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[01;36m\]\t\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]}\[\e[0m\] ${GIT_PROMPT} \[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]:\[\e[0m\]\[\e[00;34m\]\w\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\\n\[\e[00;33m\]\\$\[\e[0m\]\[\e[00;31m\] \[\e[0m\]"
+# custom prompt
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' formats ": (%{$reset_color%}%{$fg[green]%}%r/%{$fg[blue]%}%b%{$reset_color%} %m%u%c%{$reset_color%})"
+zstyle ':vcs_info:*' enable git svn
 
 
-#export PS1="\[\e[00;34m\]\u\[\e[0m\]\[\e[00;31m\]@\[\e[0m\]\[\e[00;32m\]\h\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\][\[\e[0m\]\[\e[00;35m\]\$?\[\e[0m\]\[\e[00;31m\]]\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]{\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[01;36m\]\d\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;36m\]\t\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]}\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]:\[\e[0m\]\[\e[00;34m\]\w\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;31m\]\\$ \[\e[0m\]
+
+precmd () {
+    last_exit_code=$?
+    if [[ last_exit_code -eq 0 ]] ; then
+        STATUS_PART='✅'
+    else
+        STATUS_PART="⚠️  ${red}${last_exit_code}${norm} ⚠️ "
+    fi
+    
+
+    vcs_info
+     PS1="
+${norm}${white}[${STATUS_PART}${white}] [${blue}%h${white}] ${white}[${cyan}$(date -Iseconds)${white}]${norm}
+${cyan}%n${red}@${green}%m${norm}: ${norm}${white}(${yellow}${EKS_CLUSTER:-\$EKS_CLUSTER}${white}/${yellow}${AWS_REGION:-\$AWS_REGION}${white}/${yellow}${AWS_PROFILE:-\$AWS_PROFILE}${white})${norm}
+${underline}${magenta}%~${norm}$vcs_info_msg_0_
+${white}\$ ${norm}"
+}
+
 #"
 ################################################################################
 #                      Helper files                                            #
 ################################################################################
-source ~/dotfiles/prompt_helper.sh
-source ~/git-completion.bash
+# source ~/dotfiles/prompt_helper.sh
+# source ~/git-completion.bash
+
+
 
 
 
@@ -195,15 +130,11 @@ alias la='ls -a'
 alias ll='ls -l'
 alias lal='ls -al'
 
-alias python='python3' # worth it
 
 ###############
 # Fun aliases #
 ###############
 
-#Just to scare the kids :)
-alias HACK='cmatrix -C red'
-alias sls=sl
 
 ###############
 # Git aliases #
@@ -215,5 +146,7 @@ alias ga='git add'
 alias gc='git commit'
 alias gca='git commit -a'
 alias grep='grep --color=auto'
+
+export PATH=/Users/jonathan.gillis/bin:$PATH
 
 

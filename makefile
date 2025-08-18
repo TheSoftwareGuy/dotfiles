@@ -1,14 +1,15 @@
 .PHONY: links
 
 LN :=ln
+OUTPUT_DIR =~
 
 links:
-	$(LN) bashrc ~/.bashrc 
-	$(LN) profile  ~/.profile 
-	$(LN) .vim/.vimrc ~/.vimrc 
-	$(LN) -s .vim ~/.vim 
-	$(LN) -s nvim ~/.nvim
-	$(LN) nvim/nvimrc ~/.nvimrc 
+	$(LN) -s ~/.bashrc bashrc 
+	$(LN) -s ~/.profile profile 
+	$(LN) -s ~/.vimrc .vim/.vimrc 
+	$(LN) -s ~/.vim .vim 
+	$(LN) -s ~/.nvim nvim 
+	$(LN) -s ~/.nvimrc nvim/nvimrc
 
 
 

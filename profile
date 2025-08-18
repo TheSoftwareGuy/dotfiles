@@ -1,5 +1,6 @@
 #colors for the prompt variables
 # Reset
+echo running .profile
 
 ################################################################################
 #                      Environment Variables                                   #
