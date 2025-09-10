@@ -77,10 +77,12 @@ export CLICOLOR=1
 
 
 # add homebrew stuff to PATH
-export PATH="/usr/local/Homebrew/bin:$PATH"
+export PATH="/usr/local/Homebrew/bin:$HOME/.slack/bin:$PATH"
 # aws cli auto-complete
 autoload bashcompinit && bashcompinit
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 autoload -Uz compinit && compinit
+source <(kubectl completion zsh)
 complete -C '/opt/homebrew/bin/aws_completer' aws
 
 # custom prompt
@@ -153,3 +155,4 @@ export PATH=/Users/jonathan.gillis/bin:$PATH
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
